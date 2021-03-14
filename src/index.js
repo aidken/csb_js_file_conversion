@@ -11,7 +11,7 @@ let Order = function(row) {
   this.qty        = row.E;
 };
 
-inventories = {};
+let inventories = {};
 
 let Inventory = function (record) {
   this.itemNumber  = record[0].toString();
