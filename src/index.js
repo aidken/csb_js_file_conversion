@@ -2,7 +2,7 @@ import "./styles.css";
 import XLSX from "xlsx";
 import papa from "papaparse";
 
-// cSpell:ignore xlsx papaparse
+// cSpell:ignore xlsx papaparse codesandbox noopener noreferrer
 
 let orders = {};
 
@@ -70,6 +70,7 @@ function handleFileSelect2(evt) {
   papa.parse(file, {
     header: false,
     dynamicTyping: true,
+    // your parsing process goes here
     complete: function (results) {
       results.data.forEach(function (d) {
         if (d.length === 5) {
@@ -90,47 +91,51 @@ function handleFileSelect2(evt) {
 
 // initiate app
 document.getElementById("app").innerHTML = `
-<h2 class="jumbotron text-center" style="margin-bottom:0">App Title</h2>
+<h2 class="jumbotron text-center" style="margin-bottom:0">Javascript Text/Excel File Uploader</h2>
 
-  <div class="container" style="margin-top:20px">
+<div class="container" style="margin-top:20px">
 
-    <div class="row">
+  <div class="row">
 
-      <div class="col-sm-3">
-        <ul>
-          <li><a href="https://codesandbox.io/" target="_blank" rel="noopener noreferrer">Codesandbox</a>.</li>
-          <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>.</li>
-          <li><a href="https://stackoverflow.com/" target="_blank" rel="noopener noreferrer">Stack Overflow</a>.</li>
-        </ul>
-      </div>
-
-      <div class="col-sm-9">
-
-        <form enctype="multipart/form-data">
-          <p>
-            <label for='upload1'>Upload Excel File</label>
-            <input id="upload1" type=file name="files1[]" accept='.xlsm, .xlsx'>
-          </p>
-        </form>
-
-        <form enctype="multipart/form-data">
-          <p>
-            <label for='upload2'>Upload Text File</label>
-            <input id="upload2" type=file name="files2[]" accept='.txt, .csv'>
-          </p>
-        </form>
-
-        <h4>How to use.</h4>
-        <p></p>
-        <h4>History</h4>
-        <ul>
-          <li>March 14th 2020: Created.</li>
-        </ul>
-      </div>
-
+    <div class="col-sm-3">
+      <ul>
+        <li><a href="https://codesandbox.io/" target="_blank" rel="noopener noreferrer">Codesandbox</a></li>
+        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a></li>
+        <li><a href="https://stackoverflow.com/" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li>
+      </ul>
     </div>
 
-  </div>
+    <div class="col-sm-9">
+
+      <h4>How to Use</h4>
+      <p>This is a <a href="https://codesandbox.io/">Codesandbox</a> template of
+      text/Excel file uploader. This lets you upload file and do something to
+      the files.</p>
+
+      <form enctype="multipart/form-data">
+        <p>
+          <label for='upload1'>Upload Excel File</label>
+          <input id="upload1" type=file name="files1[]" accept='.xlsm, .xlsx'>
+        </p>
+      </form>
+
+      <form enctype="multipart/form-data">
+        <p>
+          <label for='upload2'>Upload Text File</label>
+          <input id="upload2" type=file name="files2[]" accept='.txt, .csv'>
+        </p>
+      </form>
+
+      <h4>History</h4>
+      <ul>
+        <li>March 14th 2020: Created.</li>
+      </ul>
+
+    </div> /* end of <div class="col-sm-9"> */
+
+  </div> /* end of <div class="row"> */
+
+</div> /* end of <div class="container" style="margin-top:20px"> */
 `;
 
 document
