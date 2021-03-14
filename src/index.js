@@ -131,11 +131,11 @@ document.getElementById("app").innerHTML = `
         <li>March 14th 2020: Created.</li>
       </ul>
 
-    </div> /* end of <div class="col-sm-9"> */
+    </div>
 
-  </div> /* end of <div class="row"> */
+  </div>
 
-</div> /* end of <div class="container" style="margin-top:20px"> */
+</div>
 `;
 
 document
